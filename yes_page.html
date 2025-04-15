@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eu sabia que você ia dizer sim rs</title>
+  <link rel="stylesheet" href="yes_style.css" />
+</head>
+<body>
+  <div class="heart-container"></div>
+  <div class="container">
+    <h1 class="header_text">Eu sabia que você ia dizer sim rs</h1>
+    <div class="gif_container">
+      <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcTg2MG5vbGNudHJpczZjNWMyYThnZnBibHdwYXM4aWc0aG9qejA5ZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2TafTuLKPGsX3pkb8L/giphy.gif" alt="Coração feliz">
+    </div>
+  </div>
+
+  <!-- Música de fundo -->
+  <audio autoplay loop>
+    <source src="audio/musica-sim.mp3" type="audio/mpeg" />
+    Seu navegador não suporta áudio.
+  </audio>
+
+  <script>
+    const container = document.querySelector('.heart-container');
+
+    function createHeart() {
+      const heart = document.createElement('span');
+      heart.classList.add('heart');
+
+      const hearts = ['❤️', '💖', '💕', '💘', '💗'];
+      heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
+
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (16 + Math.random() * 24) + "px";
+      heart.style.animationDuration = (2 + Math.random() * 3) + "s";
+
+      container.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    setInterval(createHeart, 100);
+  </script>
+</body>
+</html>
